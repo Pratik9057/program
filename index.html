@@ -1,0 +1,83 @@
+<html>
+<head>
+</head>
+<body>
+<h3>
+////// Import libraries<br>
+
+import pandas as pd<br>
+import numpyas np<br>
+import matplotli.pyplot as plt<br>
+</h3><br>
+
+
+/////<b> 1Pie Chart<br></b>
+
+labels='Ozone','Solar.R','Wind','Tempreture'<br>
+sizes=[df['Ozone'].mean(),df['Solar.R'].mean(),df['Wind'].mean(),df['Temp'].mean()]<br>
+colors=['red','gold','purple','brown']<br>
+explode=(0.1,0,0,0)<br>
+plt.pie(sizes,explode=explode,labels=labels,colors=colors,
+        autopct='%1.1f%%',shadow=True,startangle=140)<br>
+plt.title('Average data')<br>
+<br>
+<br>
+/////<b> 2Bar Plot<br></b>
+
+h=df.iloc[1:21,4]<br>
+y_pos= np.arange(len(h))<br>
+v= range(1,21)<br>
+plt.figure(figsize=(15,8))<br>
+plt.bar(y_pos,h,align = 'center', alpha = 0.5)<br>
+plt.xticks(y_pos,v)<br>
+plt.ylabel('range')<br>
+plt.xlabel("Days")<br>
+plt.title('Tempreture for 1st-20th May')<br>
+plt.show()<br>
+<br><br>
+
+/////<b> 3Box Plot<br></b>
+
+ax=sns.boxplot(x="Sex",y="Age",hue="AHD",data=df,palette="Set3")<br>
+<br><br>
+////<b> 4Histogram</b><br>
+
+df.iloc[:,-1]<br>
+plt.hist(h,bins='auto')<br>
+plt.title("Frequencies of D")<br>
+plt.ylabel("Frequency")<br>
+plt.xlabel("Number of") <br>
+
+<br><br>
+
+////<b> 5 Line Graph</b><br>
+df["Ozone"].fillna(df['Ozone'].median(),inplace=True)<br>
+h=df.iloc[1:16,1]<br>
+v=df.iloc[1:16,3]<br>
+plt.plot(h,label='Ozone',marker='o',linestyle="dotted")<br>
+plt.plot(v,label='Wind',marker='o',linestyle="dashed")<br>
+plt.ylim(0,60)<br>
+plt.legend()<br>
+plt.title("OZone and Wind chart")<br>
+plt.ylabel("Value Range")<br>
+plt.xlabel("Days")<br>
+
+<br><br>
+////<b> 6 Scatter plot</b><br>
+h=df.iloc[1:16,1]<br>
+v=df.iloc[1:16,3]<br>
+plt.scatter(h,v)<br>
+plt.title("TV")<br>
+plt.xlabel("T")<br>
+plt.ylabel("V")<br>
+plt.show()<br>
+<br><br>
+////<b> 7 Pair plot</b><br>
+sns.set(style="ticks")<br>
+sns.pairplot(df)<br>
+plt.show()<br>
+<br><br>
+
+
+</body>
+</html>
